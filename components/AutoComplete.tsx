@@ -1,32 +1,27 @@
 'use client'
 import React from "react";
-import {  Autocomplete,  AutocompleteSection,  AutocompleteItem} from "@nextui-org/autocomplete";
-import { Providers } from "../app/providers";
-// import {animals} from "./data";
+import {Autocomplete, AutocompleteItem, Avatar} from "@nextui-org/react";
 
-const animals = [
-    {label: "Germany", value: "germany"},
-    {label: "United States", value: "united-states"},
-    {label: "United Kingdom", value: "united-kingdom"},
-    {label: "France", value: "france"},
-    {label: "Denmark", value: "denmark"},
-]
+const country = [
+  { label: "Germany", value: "germany", flag: "🇩🇪", flagSrc: "https://flagcdn.com/de.svg" },
+  { label: "United States", value: "united-states", flag: "🇺🇸", flagSrc: "https://flagcdn.com/us.svg" },
+  { label: "United Kingdom", value: "united-kingdom", flag: "🇬🇧", flagSrc: "https://flagcdn.com/gb.svg" },
+  { label: "France", value: "france", flag: "🇫🇷", flagSrc: "https://flagcdn.com/fr.svg" },
+  { label: "Denmark", value: "denmark", flag: "🇩🇰", flagSrc: "https://flagcdn.com/dk.svg" },
+];
 
 export default function AutocompleteElement() {
   return (
     <>
-        <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+        <div className="flex flex-wrap w-full gap-4 md:flex-nowrap">
         <Autocomplete 
+          defaultItems={country}
           label="Select Country" 
           className="w-full h-full"
           radius="none"
           color="default"
         >
-          {animals.map((animal) => (
-            <AutocompleteItem key={animal.value} value={animal.value}>
-              {animal.label}
-            </AutocompleteItem>
-          ))}
+          {(country) => <AutocompleteItem key={country.value} startContent={<Avatar alt={country.label} className="w-6 h-6" src={country.flagSrc} />} value={country.value}>{country.label}</AutocompleteItem>}
         </Autocomplete>
       </div>
     </>

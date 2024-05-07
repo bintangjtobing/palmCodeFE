@@ -68,7 +68,7 @@ export default function RootLayout({
 			>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "white" }}>
 					<div className="">
-						<main className="h-screen w-screen relative overflow-hidden">
+						<main className="relative w-screen h-screen overflow-hidden dark">
 							{children}
 						</main>
 					</div>
