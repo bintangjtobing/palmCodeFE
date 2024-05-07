@@ -1,51 +1,64 @@
-# Next.js & NextUI Template
+# Swell Match
 
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+## Description
 
-## Technologies Used
+Swell Match is a web application designed to help surfers find the perfect surfing spot based on their preferences and experience level. Whether you're a beginner looking for gentle waves or an experienced surfer seeking challenging breaks, Swell Match will match you with the ideal spot.
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
+This project is built using React.js framework Next.js combined with Next UI components.
 
-## How to Use
+## Features
 
-### Use the template with create-next-app
+_Just for example :)_
 
-To create a new project based on this template using `create-next-app`, run the following command:
+- Surf spot recommendations based on user preferences
+- Filtering options by wave height, difficulty, location, and more
+- User profile creation and customization
+- Interactive maps to explore surf spots worldwide
+- Real-time weather and wave forecasts for each spot
 
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
-```
+## Installation
 
-### Install dependencies
+1. Clone the repository:
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
+   ```bash
+   git clone https://github.com/bintangjtobing/palmCodeFE.git
+   ```
 
-```bash
-npm install
-```
+2. Navigate to the project directory:
 
-### Run the development server
+   ```bash
+   cd palmCodeFE
+   ```
 
-```bash
-npm run dev
-```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### Setup pnpm (optional)
+## Usage
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+1. Start the development server:
 
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
+   ```bash
+   npm run dev
+   ```
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+2. Open your web browser and navigate to `http://localhost:3000`.
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to Swell Match, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature: `git checkout -b feature-name`.
+3. Make your changes and commit them: `git commit -m 'Add new feature'`.
+4. Push to the branch: `git push origin feature-name`.
+5. Submit a pull request.
+
+## Credits
+
+Swell Match is developed and maintained by [Bintang Tobing](https://github.com/bintangjtobing).
 
 ## License
 
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
