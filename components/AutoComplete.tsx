@@ -1,27 +1,56 @@
-'use client'
-import React from "react";
-import {Autocomplete, AutocompleteItem, Avatar} from "@nextui-org/react";
+import React, { useState } from "react";
+import { Autocomplete, AutocompleteItem } from "@nextui-org/autocomplete";
+import { Avatar } from "@nextui-org/avatar";
 
-const country = [
-  { label: "Germany", value: "germany", flag: "🇩🇪", flagSrc: "https://flagcdn.com/de.svg" },
-  { label: "United States", value: "united-states", flag: "🇺🇸", flagSrc: "https://flagcdn.com/us.svg" },
-  { label: "United Kingdom", value: "united-kingdom", flag: "🇬🇧", flagSrc: "https://flagcdn.com/gb.svg" },
-  { label: "France", value: "france", flag: "🇫🇷", flagSrc: "https://flagcdn.com/fr.svg" },
-  { label: "Denmark", value: "denmark", flag: "🇩🇰", flagSrc: "https://flagcdn.com/dk.svg" },
-];
+export default function AutocompleteElement({
+  data,
+  hiddenAvatar,
+  label,
+  handleChange,
+  handleCountry,
+  handleBoard,
+}: {
+  data: any;
+  hiddenAvatar?: any;
+  label: any;
+  handleChange?: (selectedData: any) => void;
+  handleCountry?: (selectedData: any) => void;
+  handleBoard?: (selectedData: any) => void;
+}) {
+  const handleAutocompleteChange = (selectedItem: any) => {
+    if(label === 'country' && handleCountry){
+      handleCountry(selectedItem)
+    }else if(label === 'board' && handleBoard){
+      handleBoard(selectedItem)
+    }
+  };
 
-export default function AutocompleteElement() {
   return (
     <>
-        <div className="flex flex-wrap w-full gap-4 md:flex-nowrap">
-        <Autocomplete 
-          defaultItems={country}
-          label="Select Country" 
+      <div className="flex flex-wrap w-full gap-4 md:flex-nowrap dark">
+        <Autocomplete
+          defaultItems={data}
+          label={"Select " + label}
           className="w-full h-full"
           radius="none"
           color="default"
+          onSelectionChange={handleAutocompleteChange}
         >
-          {(country) => <AutocompleteItem key={country.value} startContent={<Avatar alt={country.label} className="w-6 h-6" src={country.flagSrc} />} value={country.value}>{country.label}</AutocompleteItem>}
+          {(data?: { value: any; label: string; flagSrc: string }) => (
+            <AutocompleteItem
+              key={data?.value}
+              startContent={
+                <Avatar
+                  alt={data?.label}
+                  className={`${hiddenAvatar ? `hidden` : ``} w-5 h-5`}
+                  src={data?.flagSrc}
+                />
+              }
+              value={data?.value}
+            >
+              {data?.label}
+            </AutocompleteItem>
+          )}
         </Autocomplete>
       </div>
     </>

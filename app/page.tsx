@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import VisitorDetail from '../components/VisitorDetail';
+import Form from '@/components/Form';
 
 export default function Home() {
   return (
@@ -23,16 +23,18 @@ export default function Home() {
               src='/Frame 4.svg'
               width='120'
               height='120'
+              alt='frame'
               />
           </div>
           <div className='z-30 grid grid-cols-3'>
-            <Image className='col-span-1'
+            <Image className='col-span-1 min-h-[200px] h-full'
               src={'/image1.png'}
               width={600}
               height={200}
+              alt='image1'
             />
             <div className='col-span-2 bg-[#020404] text-white p-14'>
-              <VisitorDetail/>
+              <Form/>
             </div>
           </div>
         </div>
