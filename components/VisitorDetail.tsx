@@ -1,5 +1,5 @@
 import AutocompleteElement from "./AutoComplete"
-import {getApiData, postApiData, getCSRF} from "@/function/api";
+import {getApiData} from "@/function/api";
 import { useEffect, useState } from "react";
 import axios from "axios";
 

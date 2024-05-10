@@ -18,23 +18,6 @@ export async function getApiData({ endPoint }:{endPoint:any}) {
   }
 }
 
-// export async function getCSRF() {
-//   try {
-//     const response = await axios.get(`https://be-palmcode.octansidn.com/csrf`, {
-//       withXSRFToken: true,
-//       headers: {
-//         withCredentials: true,
-//         Authorization: `Bearer ${process.env.NEXT_PUBLIC_BEARER_TOKEN}`,
-//       },
-//     });
-//     return response.data;
-//   } catch (error) {
-//     // Handle error, misalnya log atau tampilkan pesan kesalahan
-//     console.error("Error in API request:", error);
-//     throw error; // Rethrow error agar dapat ditangkap oleh pemanggil fungsi
-//   }
-// }
-
 export async function postApiData({ endPoint, dataBody }: { endPoint: string; dataBody: any }) {
   try {
     const response = await axios.post(

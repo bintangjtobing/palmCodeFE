@@ -23,7 +23,6 @@ export default function Form() {
     const [currentStep, setCurrentStep] = useState(1);
     const [selectCountry, setSelectCountry] = useState<null>(null)
     const [validationCountry, setValidationCountry] = useState(true)
-    // const [validationSurfing, setValidationSurfing] = useState(true)
     const [validationBoard, setValidationBoard] = useState<boolean>(true)
     const [valudationImage, setValidationImage] = useState<boolean>(true)
     const [messageValidationImage, setMessageValidationImage] = useState<string>('Please upload your identity')
@@ -50,18 +49,6 @@ export default function Form() {
     const [loading, setLoading] = useState<boolean>(false)
 
 
-    // useEffect(() => {
-    //     const getCSRFToken = async () => {
-    //         try {
-    //             const data  = await getCSRF();
-    //             Cookies.set('csrf_token', data, { expires: 1 })
-               
-    //         } catch (error) {
-    //             console.log(error);
-    //         }
-    //     }
-    //     getCSRFToken()
-    // }, [])
 
 
     const formSchema1 = z.object({
