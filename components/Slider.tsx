@@ -13,6 +13,7 @@ export default function SliderElement({
       <div className="mb-14">Your Surfing Experience</div>
       <Slider
         step={1}
+        // hideThumb={true}
         maxValue={10}
         minValue={0}
         defaultValue={value}
@@ -30,7 +31,7 @@ export default function SliderElement({
             "transition-size",
             "bg-gradient-to-r from-teal-400 to-white",
             "data-[dragging=true]:shadow-lg data-[dragging=true]:shadow-black/20",
-            "data-[dragging=true]:w-7 data-[dragging=true]:h-7 data-[dragging=true]:after:h-6 data-[dragging=true]:after:w-6"
+            "data-[dragging=true]:w-7 data-[dragging=true]:h-7 data-[dragging=true]:after:h-7 data-[dragging=true]:after:w-7", "custom-thumb"
           ],
           step: "data-[in-range=true]:bg-black/30 dark:data-[in-range=true]:bg-white/50"
         }}
@@ -49,7 +50,7 @@ export default function SliderElement({
           },
         }}
       />
-      <div className="w-full flex justify-between absolute" style={{ top: '45px' }}>
+      <div className="absolute flex justify-between w-full" style={{ top: '45px' }}>
         <span>0</span>
         <span>1</span>
         <span>2</span>
