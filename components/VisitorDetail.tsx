@@ -40,7 +40,6 @@ export default function VisitorDetail({
     
         getData();
     }, []);
-    
 
     return (
         <>
@@ -68,7 +67,7 @@ export default function VisitorDetail({
                     ))}
                 </div>
                 <div>
-                    <input onChange={handleChange} name="whatsapp_number" className="py-5 px-4 bg-[#232323] w-full" type="text" placeholder="Whatsapp number"/>
+                    <input onChange={handleChange} name="whatsapp_number" className="py-5 px-4 bg-[#232323] w-full" type="text" placeholder="Whatsapp number + (country code)"/>
                     {validationError?.map((error:any) => (
                         error.path[0] === "whatsapp_number" && (
                             <p key={error.path[0]} className="text-red-500">{error.message}</p>

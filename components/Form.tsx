@@ -66,8 +66,8 @@ export default function Form() {
 
     const formSchema1 = z.object({
         name: z.string().min(3).max(30),
-        email: z.string().email(),
-        whatsapp_number: z.string().regex(/^\+[1-9]\d{1,14}$/),
+        email: z.string().email({message: 'Invalid email format'}), 
+        whatsapp_number: z.string().regex(/^\+[1-9]\d{1,14}$/, {message: 'use + and your country code'}),
         // country_id: z.number()
     })
 
@@ -110,6 +110,7 @@ export default function Form() {
     
     
     const nextStep = async () => {
+        setValidationError([])
         if (currentStep < 3) {
             // Validasi menggunakan Zod
             try {
@@ -125,8 +126,6 @@ export default function Form() {
                 if(selectBoard !== null){
                     setCurrentStep(currentStep + 1);
                 }
-              }else if(currentStep === 3){
-               
               }
             } catch (error:any) {
                 console.error(error.errors);

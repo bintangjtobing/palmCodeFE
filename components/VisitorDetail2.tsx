@@ -1,5 +1,6 @@
 import AutocompleteElement from "./AutoComplete"
 import SliderElement from "./Slider"
+import { useEffect } from "react"
 
 export default function VisitorDetail2({
     value,
@@ -23,6 +24,11 @@ export default function VisitorDetail2({
         {label: 'Fishboard', value: 'fishboard'},
         {label: 'Gunboard', value: 'gunboard'},
     ]
+
+    useEffect(() => {
+        console.log(validationError);
+    }, [validationError])
+
     return (
         <>
             <h1 className='mb-5 text-5xl bodoni-moda'>Book Your Visit</h1>
@@ -33,7 +39,7 @@ export default function VisitorDetail2({
                 </div>
                 <div>
                     <input onChange={handleChange} name="visit_date" className="py-5 px-4 bg-[#232323] w-full" type="date" placeholder="Visit date"/>
-                    {validationError?.map((error:any) => (
+                    {validationError && validationError?.map((error:any) => (
                         error.path[0] === "visit_date" && (
                             <p key={error.path[0]} className="text-red-500 mt-2">{error.message}</p>
                         )
