@@ -29,15 +29,15 @@ export default function VisitorDetail2({
         <>
             <h1 className='mb-5 text-5xl bodoni-moda'>Thank you, {dataBooking?.member?.name}</h1>
             <p className='text-base inter'>You,re in!</p>
-            <p className='text-base mt-5 inter'>{"Your store visit is booked and you're ready to ride the shopping wave. Here’s your detail:"}</p>
+            <p className='mt-5 text-base inter'>{"Your store visit is booked and you're ready to ride the shopping wave. Here’s your detail:"}</p>
             <div className="grid grid-cols-2 gap-5 mt-5 mb-10 inter">
                 <div>
-                    <p className="text-gray-400 text-base">Name:</p>
+                    <p className="text-base text-gray-400">Name:</p>
                     <p className="text-lg">{dataBooking?.member?.name}</p>
                 </div>
                 <div>
-                    <p className="text-gray-400 text-base">Country:</p>
-                    <p className="text-lg flex items-center gap-2">
+                    <p className="text-base text-gray-400">Country:</p>
+                    <p className="flex items-center gap-2 text-lg">
                         <Image
                             className="w-5 h-5"
                             src={dataCountry?.icon_name}
@@ -49,15 +49,15 @@ export default function VisitorDetail2({
                     </p>
                 </div>
                 <div>
-                    <p className="text-gray-400 text-base">Email:</p>
+                    <p className="text-base text-gray-400">Email:</p>
                     <p className="text-lg">{dataBooking?.member?.email}</p>
                 </div>
                 <div>
-                    <p className="text-gray-400 text-base">Visit date:</p>
+                    <p className="text-base text-gray-400">Visit date:</p>
                     <p className="text-lg">{dataBooking?.surfing_booking?.visit_date}</p>
                 </div>
             </div>
-            <p className="mb-20 inter">We look forward to seeing you at the #Swellmatch store! Your booking details already sent to your email and whatsapp</p>
+            <p className="mb-20 inter">We look forward to seeing you at the #Swellmatch store! <br></br> Your booking details already sent to your email and whatsapp</p>
         </>
     )
 }

@@ -67,7 +67,7 @@ export default function Form() {
     const formSchema1 = z.object({
         name: z.string().min(3).max(30),
         email: z.string().email({message: 'Invalid email format'}), 
-        whatsapp_number: z.string().regex(/^\+[1-9]\d{1,14}$/, {message: 'use + and your country code'}),
+        whatsapp_number: z.string().regex(/^\+[1-9]\d{1,14}$/, {message: 'Use +(country code). Ex: +62812345678'}),
         // country_id: z.number()
     })
 
@@ -162,7 +162,7 @@ export default function Form() {
                                   });
                                   Toast.fire({
                                     icon: "success",
-                                    title: "Your submission has been recorded"
+                                    title: "Your book visit request has been recorded."
                                   });
                                 setDataBooking(data)
                                 setCurrentStep(currentStep + 1)
@@ -255,7 +255,7 @@ export default function Form() {
                 <button disabled={loading} className={`font-semibold text-black bg-white text-md ${currentStep === 3 && loading ? `flex gap-2 items-center px-10 py-2` : `px-16 py-4`}`} onClick={nextStep}>{currentStep === 3 && loading ? <><ProgresElement/> <p>Book my visit</p></>  : currentStep === 3 ? 'Book my visit' : 'Next'}</button>
             )}
             {currentStep === 4 && (
-                <p className="text-gray-400 text-base">This form will refresh automatically in 10 seconds</p>
+                <p className="text-base text-gray-400">This form will refresh automatically in 10 seconds</p>
             )}
         </>
     );

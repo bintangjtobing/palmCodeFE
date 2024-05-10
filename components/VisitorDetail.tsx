@@ -44,7 +44,7 @@ export default function VisitorDetail({
     return (
         <>
             <h1 className='mb-5 text-5xl bodoni-moda'>Book Your Visit</h1>
-            <p className='text-sm inter'>1/3 VISITOR DETAILS</p>
+            <p className='text-sm inter'>1/3: VISITOR DETAILS</p>
             <form className="grid grid-cols-2 mt-12 mb-12 gap-x-10 gap-y-14 inter">
                 <div className="">
                     <input onChange={handleChange} name="name" className="py-5 px-4 bg-[#232323] w-full mb-2" type="text" placeholder="Name"/>
@@ -67,7 +67,7 @@ export default function VisitorDetail({
                     ))}
                 </div>
                 <div>
-                    <input onChange={handleChange} name="whatsapp_number" className="py-5 px-4 bg-[#232323] w-full mb-2" type="text" placeholder="Whatsapp number + (country code)"/>
+                    <input onChange={handleChange} name="whatsapp_number" className="py-5 px-4 bg-[#232323] w-full mb-2" type="text" placeholder="Whatsapp number"/>
                     {validationError?.map((error:any) => (
                         error.path[0] === "whatsapp_number" && (
                             <p key={error.path[0]} className="text-red-500">{error.message}</p>
