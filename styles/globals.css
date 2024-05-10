@@ -16,3 +16,14 @@
     font-variation-settings:
       "slnt" 0;
   }
+  .custom-thumb {
+    width: 40px;
+    height: 40px;
+    background-position: center;
+    z-index: 999;
+    background-image: url('https://res.cloudinary.com/boxity-id/image/upload/v1715350761/surfing-board_qkrqgw.svg');
+    background-size: contain;
+    appearance: none;
+    background-repeat: no-repeat;
+    
+  }
