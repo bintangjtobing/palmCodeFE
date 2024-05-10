@@ -48,9 +48,9 @@ export default function VisitorDetail3({
 
     return (
         <>
-            <h1 className='mb-5 text-5xl'>Book Your Visit</h1>
-            <p className='text-sm'>3/3 VISITOR DETAILS</p>
-            <form className={`grid grid-cols-2 mt-12 gap-x-10 gap-y-14 ${!validationImage ? `` : `mb-12`}`}
+            <h1 className='mb-5 text-5xl bodoni-moda'>Book Your Visit</h1>
+            <p className='text-sm inter'>3/3 VISITOR DETAILS</p>
+            <form className={`grid grid-cols-2 mt-12 gap-x-10 gap-y-14 inter ${!validationImage ? `` : `mb-12`}`}
                 onDrop={handleDrop}
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}>

@@ -1,92 +1,34 @@
-'use client'
-import React, { useState } from "react";
-import {Slider} from "@nextui-org/react";
+import React from "react";
+import { Slider } from "@nextui-org/react";
 
 export default function SliderElement({
   value,
   setValue
-}:{
-  value: any,
-  setValue: any
+}: {
+  value: any;
+  setValue: any;
 }) {
-
-    // const labelStyle = (children) => {
-    //     return (
-    //         <>
-    //             <div>{children}</div>
-    //         </>
-    //     )
-    // }
-    return (
-     <>
-     <Slider 
-        label="Your Surfing Experience"
-        step={1} 
-        maxValue={10} 
-        minValue={0} 
+  return (
+    <div className="relative">
+      <div className="mb-14">Your Surfing Experience</div>
+      <Slider
+        step={1}
+        maxValue={10}
+        minValue={0}
         defaultValue={value}
-        marks={[
-          {
-            value: 0,
-            label: '0',
-          },
-          {
-            value: 1,
-            label: '1',
-          },
-          {
-            value: 2,
-            label: "2",
-          },
-          {
-            value: 3,
-            label: "3",
-          },
-          {
-              value: 4,
-              label: "4",
-          },
-          {
-              value: 5,
-              label: "5",
-          },
-          {
-              value: 6,
-              label: "6",
-          },
-          {
-              value: 7,
-              label: "7",
-          },
-          {
-              value: 8,
-              label: "8",
-          },
-          {
-              value: 9,
-              label: "9",
-          },
-          {
-              value: 10,
-              label: "10+",
-          },
-        ]}
-        showSteps={true}
         showTooltip={true}
-        showOutline={true}
-        disableThumbScale={true}
+        showOutline={false}
+        disableThumbScale={false}
         onChangeEnd={setValue}
-      //   formatOptions={{style: "currency", currency: "USD"}}
-      //   tooltipValueFormatOptions={{style: "currency", currency: "USD", maximumFractionDigits: 0}}
         classNames={{
           base: "w-full",
-          filler: "bg-gradient-to-r from-primary-500 to-secondary-400",
+          filler: "bg-gradient-to-r from-white to-teal-400",
           labelWrapper: "mb-2",
-          label: "font-medium text-default-700 text-medium",
+          label: "font-medium text-white text-medium mb-7",
           value: "font-medium text-default-500 text-small",
           thumb: [
             "transition-size",
-            "bg-gradient-to-r from-secondary-400 to-primary-500",
+            "bg-gradient-to-r from-teal-400 to-white",
             "data-[dragging=true]:shadow-lg data-[dragging=true]:shadow-black/20",
             "data-[dragging=true]:w-7 data-[dragging=true]:h-7 data-[dragging=true]:after:h-6 data-[dragging=true]:after:w-6"
           ],
@@ -94,19 +36,32 @@ export default function SliderElement({
         }}
         tooltipProps={{
           offset: 10,
-          placement: "bottom",
+          placement: "top",
           classNames: {
             base: [
               // arrow color
-              "before:bg-gradient-to-r before:from-secondary-400 before:to-primary-500",
+              "before:bg-gradient-to-r before:from-white before:to-teal-400",
             ],
             content: [
               "py-2 shadow-xl",
-              "text-white bg-gradient-to-r from-secondary-400 to-primary-500",
+              "text-white bg-[#05B3BE]",
             ],
           },
         }}
       />
-     </>
-    );
+      <div className="w-full flex justify-between absolute" style={{ top: '45px' }}>
+        <span>0</span>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>6</span>
+        <span>7</span>
+        <span>8</span>
+        <span>9</span>
+        <span>10+</span>
+      </div>
+    </div>
+  );
 }

@@ -25,9 +25,9 @@ export default function VisitorDetail2({
     ]
     return (
         <>
-            <h1 className='mb-5 text-5xl'>Book Your Visit</h1>
-            <p className='text-sm'>2/3 VISITOR DETAILS</p>
-            <form className="grid grid-cols-2 mt-12 mb-12 gap-x-10 gap-y-14">
+            <h1 className='mb-5 text-5xl bodoni-moda'>Book Your Visit</h1>
+            <p className='text-sm inter'>2/3 VISITOR DETAILS</p>
+            <form className="grid grid-cols-2 mt-12 mb-12 gap-x-10 gap-y-7 inter">
                 <div className="col-span-2">
                     <SliderElement setValue={setValue} value={value}/>
                 </div>

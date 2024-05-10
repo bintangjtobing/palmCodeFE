@@ -44,9 +44,9 @@ export default function VisitorDetail({
 
     return (
         <>
-            <h1 className='mb-5 text-5xl'>Book Your Visit</h1>
-            <p className='text-sm'>1/3 VISITOR DETAILS</p>
-            <form className="grid grid-cols-2 mt-12 mb-12 gap-x-10 gap-y-14">
+            <h1 className='mb-5 text-5xl bodoni-moda'>Book Your Visit</h1>
+            <p className='text-sm inter'>1/3 VISITOR DETAILS</p>
+            <form className="grid grid-cols-2 mt-12 mb-12 gap-x-10 gap-y-14 inter">
                 <div className="">
                     <input onChange={handleChange} name="name" className="py-5 px-4 bg-[#232323] w-full mb-1" type="text" placeholder="Name"/>
                     {validationError?.map((error:any) => (

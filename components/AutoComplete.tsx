@@ -31,13 +31,14 @@ export default function AutocompleteElement({
         <Autocomplete
           defaultItems={data}
           label={"Select " + label}
-          className="w-full h-full"
+          className="w-full h-full inter"
           radius="none"
           color="default"
           onSelectionChange={handleAutocompleteChange}
         >
           {(data?: { value: any; label: string; flagSrc: string }) => (
             <AutocompleteItem
+              className="inter"
               key={data?.value}
               startContent={
                 <Avatar

@@ -30,42 +30,23 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			 <head>
-            <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                var config = {
-                  apiKey: 'YOUR_API_KEY',
-                  ...
-                };
-                var script = document.createElement('script');
-                script.src = 'https://use.typekit.net/abcdefg.js';
-                script.async = true;
-                script.onload = function() {
-                  try {
-                    Typekit.load(config);
-                  } catch (e) {}
-                };
-                document.head.appendChild(script);
-              })();
-            `,
-          }}
-        />
-        <script dangerouslySetInnerHTML={{ __html: "try{Typekit.load({ async: true });}catch(e){}" }} />
-      <link rel="stylesheet" href="https://fonts.adobe.com/fonts/bodoni-moda-variable" />
+		<head>
+
+			{/* bodoni-moda */}
+			<link rel="preconnect" href="https://fonts.googleapis.com" />
+			<link rel="preconnect" href="https://fonts.gstatic.com" />
+			<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet"/>
+
+			{/* inter */}
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" />
+			<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"></link>
       </head>
 			<body
 				className={clsx(
 					"min-h-screen font-sans antialiased",
 					fontSans.variable
-				)}
-				style={{
-					fontFamily: "Bodoni Moda Variable", // Ubah nama font ke format yang benar
-					fontVariationSettings: '"wght" 400, "opsz" 11', // Perbaiki sintaks fontVariationSettings
-					fontStyle: "normal",
-				  }}
-			>
+				)}>
 				<Providers themeProps={{ attribute: "class", defaultTheme: "white" }}>
 					<div className="">
 						<main className="relative w-screen h-screen overflow-hidden">

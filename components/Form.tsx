@@ -4,6 +4,7 @@ import VisitorDetail from "./VisitorDetail"
 import VisitorDetail2 from "./VisitorDetail2"
 import VisitorDetail3 from "./VisitorDetail3"
 import VisitorDetail4 from "./VisitorDetail4"
+import ProgresElement from './Progres';
 import { z } from "zod";
 const mime = require('mime-types')
 import { postApiData } from '@/function/api';
@@ -46,6 +47,7 @@ export default function Form() {
     const [valueSurfing, setValueSurfing] = useState(0)
     const [validationError, setValidationError] = useState<any>(undefined)
     const [dataBooking, setDataBooking] = useState<object>({})
+    const [loading, setLoading] = useState<boolean>(false)
 
 
     useEffect(() => {
@@ -132,11 +134,13 @@ export default function Form() {
             }
         } 
         else {
+            setLoading(true)
             try {
                 if (uploadedFile !== null) {
                     // Memeriksa apakah file berukuran lebih kecil dari batas maksimum
                     if (uploadedFile.size > MAX_FILE_SIZE) {
                         setMessageValidationImage('File is too large')
+                        setLoading(false)
                     } else {
                         // Memeriksa tipe MIME file
                         const mimeType = mime.lookup(uploadedFile.name);
@@ -163,16 +167,19 @@ export default function Form() {
                                   });
                                 setDataBooking(data)
                                 setCurrentStep(currentStep + 1)
+                                setLoading(false)
                             } 
                         } else {
                             setMessageValidationImage('The file type is not supported or is not an image')
+                            setLoading(false)
                         }
                     }
                 } else {
                     setValidationImage(false);
+                    setLoading(false)
                 }
             } catch (error:any) {
-                let errorMessage = 'Terjadi kesalahan yang tidak terduga.';
+                let errorMessage = 'An unexpected error occurred.';
                 
                 // Memeriksa apakah objek error adalah jenis kesalahan Axios dan properti response tersedia
                 if (error.isAxiosError && error.response && error.response.data && error.response.data.message) {
@@ -195,6 +202,7 @@ export default function Form() {
                     icon: "error",
                     title: errorMessage
                 });
+                setLoading(false)
             }
             
         }
@@ -245,7 +253,7 @@ export default function Form() {
         <>
             {renderVisitorDetail()}
             {currentStep < 4 && (
-                <button className="px-16 py-4 font-semibold text-black bg-white text-md" onClick={nextStep}>{currentStep === 3 ? 'Book my visit' : 'Next'}</button>
+                <button disabled={loading} className={`font-semibold text-black bg-white text-md ${currentStep === 3 && loading ? `flex gap-2 items-center px-10 py-2` : `px-16 py-4`}`} onClick={nextStep}>{currentStep === 3 && loading ? <><ProgresElement/> <p>Book my visit</p></>  : currentStep === 3 ? 'Book my visit' : 'Next'}</button>
             )}
             {currentStep === 4 && (
                 <p className="text-gray-400 text-base">This form will refresh automatically in 10 seconds</p>
