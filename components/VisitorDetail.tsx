@@ -1,13 +1,18 @@
 import AutocompleteElement from "./AutoComplete"
-import getApiData from "@/function/api";
+import {getApiData, postApiData, getCSRF} from "@/function/api";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function VisitorDetail({
     handleChange,
     handleCountry,
+    validationError,
+    validationCountry
 }:{
     handleChange:any,
-    handleCountry:any
+    handleCountry:any,
+    validationError:any,
+    validationCountry:any
 }) {
     const [dataCountries, setDataCountries] = useState<{ value: string | number; label: string; flagSrc: string; }[]>([]);
 
@@ -42,10 +47,34 @@ export default function VisitorDetail({
             <h1 className='mb-5 text-5xl'>Book Your Visit</h1>
             <p className='text-sm'>1/3 VISITOR DETAILS</p>
             <form className="grid grid-cols-2 mt-12 mb-12 gap-x-10 gap-y-14">
-                <input onChange={handleChange} name="name" className="py-5 px-4 bg-[#232323]" type="text" placeholder="Name"/>
-                <AutocompleteElement data={dataCountries} label={'country'} handleChange={handleChange} handleCountry={handleCountry} hiddenAvatar={false}/>
-                <input onChange={handleChange} name="email" className="py-5 px-4 bg-[#232323]" type="email" placeholder="Email"/>
-                <input onChange={handleChange} name="whatsapp_number" className="py-5 px-4 bg-[#232323]" type="text" placeholder="Whatsapp number"/>
+                <div className="">
+                    <input onChange={handleChange} name="name" className="py-5 px-4 bg-[#232323] w-full mb-1" type="text" placeholder="Name"/>
+                    {validationError?.map((error:any) => (
+                        error.path[0] === "name" && (
+                            <p key={error.path[0]} className="text-red-500">{error.message}</p>
+                        )
+                    ))}
+                </div>
+                <div>
+                    <AutocompleteElement data={dataCountries} label={'country'} handleChange={handleChange} handleCountry={handleCountry} hiddenAvatar={false}/>
+                    <p className={`text-red-500 ${!validationCountry ? `` : `hidden`}`}>Please select your country</p>
+                </div>
+                <div>
+                    <input onChange={handleChange} name="email" className="py-5 px-4 bg-[#232323] w-full" type="email" placeholder="Email"/>
+                    {validationError?.map((error:any) => (
+                        error.path[0] === "email" && (
+                            <p key={error.path[0]} className="text-red-500">{error.message}</p>
+                        )
+                    ))}
+                </div>
+                <div>
+                    <input onChange={handleChange} name="whatsapp_number" className="py-5 px-4 bg-[#232323] w-full" type="text" placeholder="Whatsapp number"/>
+                    {validationError?.map((error:any) => (
+                        error.path[0] === "whatsapp_number" && (
+                            <p key={error.path[0]} className="text-red-500">{error.message}</p>
+                        )
+                    ))}
+                </div>
             </form>
         </>
     )

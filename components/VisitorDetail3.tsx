@@ -1,15 +1,19 @@
 'use client'
 import { useState, useRef } from 'react';
 
-export default function VisitorDetail3() {
+export default function VisitorDetail3({
+    uploadedFile,
+    setUploadedFile,
+    validationImage,
+    messageValidationImage
+}:{
+    uploadedFile:any,
+    setUploadedFile:any,
+    validationImage:boolean,
+    messageValidationImage:string
+}) {
     const [dragging, setDragging] = useState(false);
-    const fileInputRef = useRef<HTMLInputElement>(null);
-    interface FileData {
-        name: string;
-        size: number;
-    }
-    
-    const [uploadedFile, setUploadedFile] = useState<FileData | undefined>(undefined);
+    const fileInputRef = useRef<HTMLInputElement>(null)
     
 
     const handleDrop = (e:any) => {
@@ -31,7 +35,7 @@ export default function VisitorDetail3() {
     };
 
     const handleAreaClick = () => {
-        fileInputRef.current!.click(); // Operator non-null assertion (!) digunakan untuk memberi tahu TypeScript bahwa nilai tersebut pasti tidak null atau undefined
+        fileInputRef.current?.click(); // Operator non-null assertion (!) digunakan untuk memberi tahu TypeScript bahwa nilai tersebut pasti tidak null atau undefined
     };
     
     
@@ -39,7 +43,6 @@ export default function VisitorDetail3() {
     const handleFileInputChange = (e:any) => {
         const file = e.target.files[0];
         console.log('File yang diunggah:', file);
-        // Simpan informasi file yang diunggah
         setUploadedFile(file);
     };
 
@@ -47,7 +50,7 @@ export default function VisitorDetail3() {
         <>
             <h1 className='mb-5 text-5xl'>Book Your Visit</h1>
             <p className='text-sm'>3/3 VISITOR DETAILS</p>
-            <form className="grid grid-cols-2 mt-12 mb-12 gap-x-10 gap-y-14"
+            <form className={`grid grid-cols-2 mt-12 gap-x-10 gap-y-14 ${!validationImage ? `` : `mb-12`}`}
                 onDrop={handleDrop}
                 onDragOver={handleDragOver}
                 onDragLeave={handleDragLeave}>
@@ -82,6 +85,7 @@ export default function VisitorDetail3() {
                     )}
                 </div>
             </form>
+            <p className={`text-red-500 mt-2 mb-12 ${!validationImage ? `` : `hidden`}`}>{messageValidationImage}</p>
         </>
     );
 }

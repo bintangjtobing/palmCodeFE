@@ -5,12 +5,16 @@ export default function VisitorDetail2({
     value,
     setValue,
     handleChange,
-    handleBoard
+    handleBoard,
+    validationError,
+    validationBoard
 }:{
     value: any,
     setValue: any,
     handleChange: any,
-    handleBoard: any
+    handleBoard: any,
+    validationError:any,
+    validationBoard:any
 }) {
     const data = [
         {label: 'Longboard', value: 'longboard'},
@@ -27,8 +31,18 @@ export default function VisitorDetail2({
                 <div className="col-span-2">
                     <SliderElement setValue={setValue} value={value}/>
                 </div>
-                <input onChange={handleChange} name="visit_date" className="py-5 px-4 bg-[#232323]" type="date" placeholder="Visit date"/>
-                <AutocompleteElement data={data} hiddenAvatar={true} label={'board'} handleBoard={handleBoard}/>
+                <div>
+                    <input onChange={handleChange} name="visit_date" className="py-5 px-4 bg-[#232323] w-full" type="date" placeholder="Visit date"/>
+                    {validationError?.map((error:any) => (
+                        error.path[0] === "visit_date" && (
+                            <p key={error.path[0]} className="text-red-500 mt-2">{error.message}</p>
+                        )
+                    ))}
+                </div>
+                <div>
+                    <AutocompleteElement data={data} hiddenAvatar={true} label={'board'} handleBoard={handleBoard}/>
+                    <p className={`text-red-500 mt-2 ${!validationBoard ? `` : `hidden`}`}>Please select your board</p>
+                </div>
             </form>
         </>
     )
