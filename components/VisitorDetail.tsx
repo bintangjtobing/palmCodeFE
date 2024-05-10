@@ -47,7 +47,7 @@ export default function VisitorDetail({
             <p className='text-sm inter'>1/3 VISITOR DETAILS</p>
             <form className="grid grid-cols-2 mt-12 mb-12 gap-x-10 gap-y-14 inter">
                 <div className="">
-                    <input onChange={handleChange} name="name" className="py-5 px-4 bg-[#232323] w-full mb-1" type="text" placeholder="Name"/>
+                    <input onChange={handleChange} name="name" className="py-5 px-4 bg-[#232323] w-full mb-2" type="text" placeholder="Name"/>
                     {validationError?.map((error:any) => (
                         error.path[0] === "name" && (
                             <p key={error.path[0]} className="text-red-500">{error.message}</p>
@@ -56,10 +56,10 @@ export default function VisitorDetail({
                 </div>
                 <div>
                     <AutocompleteElement data={dataCountries} label={'country'} handleChange={handleChange} handleCountry={handleCountry} hiddenAvatar={false}/>
-                    <p className={`text-red-500 ${!validationCountry ? `` : `hidden`}`}>Please select your country</p>
+                    <p className={`text-red-500 mt-2 ${!validationCountry ? `` : `hidden`}`}>Please select your country</p>
                 </div>
                 <div>
-                    <input onChange={handleChange} name="email" className="py-5 px-4 bg-[#232323] w-full" type="email" placeholder="Email"/>
+                    <input onChange={handleChange} name="email" className="py-5 px-4 bg-[#232323] w-full mb-2" type="email" placeholder="Email"/>
                     {validationError?.map((error:any) => (
                         error.path[0] === "email" && (
                             <p key={error.path[0]} className="text-red-500">{error.message}</p>
@@ -67,7 +67,7 @@ export default function VisitorDetail({
                     ))}
                 </div>
                 <div>
-                    <input onChange={handleChange} name="whatsapp_number" className="py-5 px-4 bg-[#232323] w-full" type="text" placeholder="Whatsapp number + (country code)"/>
+                    <input onChange={handleChange} name="whatsapp_number" className="py-5 px-4 bg-[#232323] w-full mb-2" type="text" placeholder="Whatsapp number + (country code)"/>
                     {validationError?.map((error:any) => (
                         error.path[0] === "whatsapp_number" && (
                             <p key={error.path[0]} className="text-red-500">{error.message}</p>
