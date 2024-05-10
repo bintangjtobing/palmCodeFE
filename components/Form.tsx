@@ -8,7 +8,7 @@ import ProgresElement from './Progres';
 import { z } from "zod";
 const mime = require('mime-types')
 import { postApiData } from '@/function/api';
-import { getCSRF } from '@/function/api';
+// import { getCSRF } from '@/function/api';
 import Cookies from 'js-cookie'
 import Swal from 'sweetalert2'
 
@@ -50,18 +50,18 @@ export default function Form() {
     const [loading, setLoading] = useState<boolean>(false)
 
 
-    useEffect(() => {
-        const getCSRFToken = async () => {
-            try {
-                const data  = await getCSRF();
-                Cookies.set('csrf_token', data, { expires: 1 })
+    // useEffect(() => {
+    //     const getCSRFToken = async () => {
+    //         try {
+    //             const data  = await getCSRF();
+    //             Cookies.set('csrf_token', data, { expires: 1 })
                
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        getCSRFToken()
-    }, [])
+    //         } catch (error) {
+    //             console.log(error);
+    //         }
+    //     }
+    //     getCSRFToken()
+    // }, [])
 
 
     const formSchema1 = z.object({
