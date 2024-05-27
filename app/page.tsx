@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Form from '@/components/Form';
 
 export default function Home() {
@@ -19,7 +18,7 @@ export default function Home() {
       </div>
         <div className='container flex items-center justify-center h-full mx-auto'>
           <div className='absolute top-20'>
-            <Image className='mx-auto'
+            <img className='mx-auto'
               src='/Frame 4.svg'
               width='120'
               height='120'
@@ -27,8 +26,8 @@ export default function Home() {
               />
           </div>
           <div className='z-30 grid grid-cols-3'>
-            <Image className='col-span-1 min-h-[200px] h-full'
-              src='/image1.png'
+            <img className='col-span-1 min-h-[200px] h-full'
+              src="/image1.png"
               width={600}
               height={200}
               alt='image1'
