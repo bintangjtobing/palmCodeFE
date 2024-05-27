@@ -1,3 +1,8 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    // Other rules
+    "@next/next/no-page-custom-font": "off",
+    "@next/next/no-custom-routes": "off"
+  }
 }
