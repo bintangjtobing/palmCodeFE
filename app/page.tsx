@@ -28,7 +28,7 @@ export default function Home() {
           </div>
           <div className='z-30 grid grid-cols-3'>
             <Image className='col-span-1 min-h-[200px] h-full'
-              src={'/image1.png'}
+              src='/image1.png'
               width={600}
               height={200}
               alt='image1'
